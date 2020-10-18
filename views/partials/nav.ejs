@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-light">
+    <% if(typeof isUserLoggedIn !== 'undefined') {%>
+    <% if(isUserLoggedIn) {%>
+
+    <div class="expand navbar-collapse" id="myNavbar" style="display: inline !important;">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/positions/myopenings">My Openings</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/positions/position">Home</span></a>
+            </li>
+            <% if(isManager) {%>        
+            <li class="nav-item">
+                <a class="nav-link" href="/positions/create">Add Position</a>
+            </li>
+            <% } %>
+            <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+    <% } %>
+    <% } %>
+
+</nav>

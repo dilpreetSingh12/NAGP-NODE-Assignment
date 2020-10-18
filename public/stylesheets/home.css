@@ -1,0 +1,20 @@
+span.key {
+    color: black;
+    font-weight: 600;
+}
+
+div.card-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+div.card-text {
+    align-items: center;
+    text-align: center;
+}
+
+div.card-footer {
+    align-items: center;
+    text-align: center;
+}

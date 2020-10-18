@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <style>
+        span.key {
+            color: cornflowerblue;
+        }
+        div.card-header {
+            background-color: darkgray;
+            color: chocolate;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+    <div class="container">
+        <div class="card-secondary">
+            <div class="card-body">
+                <div class="card-header">
+                    <%= position.role  %>
+                </div>
+                <div class="card-text">
+                    <div class="row">
+                        <div class="col col-md-3">
+                            <span class="key"><strong>Project Name</strong></span>:
+                        </div>
+                        <div class="col col-md-9">
+                            <%= position.projectname %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-3">
+                            <span class="key"><strong>Client Name</strong></span>:
+                        </div>
+                        <div class="col col-md-9">
+                            <%= position.clientname %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-3">
+                            <span class="key"><strong>Job Description</strong></span>:
+                        </div>
+                        <div class="col col-md-9">
+                            <%= position.jobdescription %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-3">
+                            <span class="key"><strong>Technologies</strong></span>:
+                        </div>
+                        <div class="col col-md-9">
+                            <%= position.technologies %>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                        <% if(isManager && position.createdby === userID) {%> 
+                    <a type="btn btn-primary btn-sm" href="/positions/position/update/<%= position._id %>" >Update Position </a>
+                    <% } %>
+                </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

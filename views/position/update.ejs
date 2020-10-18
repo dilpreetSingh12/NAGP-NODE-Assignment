@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel='stylesheet' href='/stylesheets/createPosition.css' />
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+    <div class="container">
+        <div class="card-secondary">
+            <div class="card-body">
+                <div class="card-header">
+                    Update Position
+                </div>
+                <div class="row" style="text-align: center; display: inline;">
+                    <% if(typeof errMessage !== 'undefined') {%>
+                        <span class="err"><%= errMessage %> </span>
+                        <% } %>
+                </div>
+                <div class="card-text">
+                    <form method="post" action="/positions/update/<%= position._id %>?_method=PUT">
+                        <br>
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="projectname">
+                                Project Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="projectname" name="projectname" class="form-control" value="<%= position.projectname%>"
+                                    placeholder="Please Enter Project Name" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="clientname">
+                                Client Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="clientname" name="clientname" class="form-control" value="<%= position.clientname%>"
+                                    placeholder="Please Enter Client Name" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="role">
+                                Role
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="role" name="role" class="form-control" value="<%= position.role%>"
+                                    placeholder="Please Enter Role" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="role">
+                                Technologies
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="technologies" name="technologies" class="form-control" value="<%= position.technologies%>"
+                                    placeholder="Please Enter Technologies" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="jobdescription">
+                                Job Description
+                            </label>
+                            <div class="col-md-8">
+                                <textarea type="" id="jobdescription" cols="30" rows="5" name="jobdescription" class="form-control"
+                                    placeholder="Please Enter Job Description" required=""> <%= position.jobdescription%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="status">
+                                Status
+                            </label>
+                            <div class="col-md-8">
+                                <div class="row radio-inline">
+                                    <% if (position.status) {%>
+                                    <label><input type="radio" name="status" value="true" checked>Opened</label>
+                                    &nbsp;&nbsp;
+                                    <label><input type="radio" name="status" value="false">Closed</label>
+                                    <% } else { %>
+                                        <label><input type="radio" name="status" value="true">Opened</label>
+                                        &nbsp;&nbsp;
+                                        <label><input type="radio" name="status" value="false" checked>Closed</label>    
+                                    <% } %> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-sm btn-primary" type="submit">Update Position</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

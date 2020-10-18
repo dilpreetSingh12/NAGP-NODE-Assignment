@@ -1,0 +1,29 @@
+div.container {
+    align-self: center;
+    width: 45%;
+}
+
+form.create-form {
+    text-align: center;
+}
+
+div.form-group {
+    justify-content: center;
+}
+
+span.err {
+    color: red;
+}
+
+div.card-header {
+    background-color: cornflowerblue;
+    color:brown;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+div.card-text {
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/home.css' />
+    <link rel='stylesheet' href='/stylesheets/nav.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">  </head>
+  <body>
+      <% include ../partials/nav %>
+      <div class="container" id="main">
+        <% for(var i = 0; i < positions.length; i++) { %>
+          <% if(isManager || positions[i].status){ %>
+              <div class="col">
+                <div class="card mb-3">
+                    <div class="card-body">
+                       <div class="card-title"><%= positions[i].role %></div>
+                          <div class="card-text">
+                            <span class="key">Project Name</span> : <%= positions[i].projectname %><br>
+                            <span class="key">Client Name</span>: <%= positions[i].clientname %><br>
+                            <span class="key">Job Description</span>: <%= positions[i].jobdescription %><br>
+                            <% if (positions[i].status) {%>
+                                        <strong>OPEN</strong>
+                                    <% } else {%>
+                                      <strong>CLOSED</strong>
+                                    <% } %>
+                          </div>
+                    </div>
+                    <div class="card-footer">
+                        <% if(isManager){ %>
+                          <a type="btn btn-primary btn-sm" href="position/<%= positions[i]._id %>" >View Details </a> 
+                        <% } else if(positions[i].status){ %>  
+                          <% if (!positions[i].appliedBy.includes(userID.toString())) {%>
+                            <a type="btn btn-primary btn-sm" href="apply/<%= positions[i]._id %>" >Apply </a> 
+                        <% } else {%>
+                          <a type="btn btn-primary btn-sm" href="" >Already Applied </a> 
+                        <% } %>
+                          
+                       <% } %>
+                    </div>
+                </div>
+              </div>
+          <% } %>   
+          <% } %> 
+          </div>
+  </body>
+</html>

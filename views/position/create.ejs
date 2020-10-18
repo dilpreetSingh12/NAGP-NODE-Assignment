@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel='stylesheet' href='/stylesheets/createPosition.css' />
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+    <div class="container">
+        <div class="card-secondary">
+            <div class="card-body">
+                <div class="card-header">
+                    Create Position
+                </div>
+                <div class="card-text">
+                    <form class="create-form" action="/positions/create" method="post">
+                        <br>
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="projectname">
+                                Project Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="projectname" name="projectname" class="form-control"
+                                    <% if(typeof position !== 'undefined') {%>
+                                        value="<%= position.projectname %>"
+                                        <% } %>
+                                    placeholder="Please Enter Project Name">
+                                <% if(typeof projectNameErr !== 'undefined') {%>
+                                <span class="err"><%= projectNameErr.msg %> </span>
+                                <% } %>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="clientname">
+                                Client Name
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="clientname" name="clientname" class="form-control"
+                                    <% if(typeof position !== 'undefined') {%> value="<%= position.clientname %>" <% } %>
+                                    placeholder="Please Enter Client Name">
+                                <% if(typeof clientNameErr !== 'undefined') {%>
+                                <span class="err"><%= clientNameErr.msg %> </span>
+                                <% } %>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="role">
+                                Role
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="role" name="role" class="form-control"
+                                <% if(typeof position !== 'undefined') {%> value="<%= position.role %>" <% } %>
+                                placeholder="Please Enter Role">
+                                <% if(typeof roleErr !== 'undefined') {%>
+                                    <span class="err"><%= roleErr.msg %> </span>
+                                    <% } %>
+                                </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="role">
+                                Technologies
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" id="technologies" name="technologies" class="form-control"
+                                <% if(typeof position !== 'undefined') {%> value="<%= position.technologies %>" <% } %>
+                                    placeholder="Please Enter Technologies">
+                                    <% if(typeof technologiesErr !== 'undefined') {%>
+                                        <span class="err"><%= technologiesErr.msg %> </span>
+                                        <% } %>
+                                    </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="jobdescription">
+                                Job Description
+                            </label>
+                            <div class="col-md-8">
+                                <textarea type="" id="jobdescription" cols="30" rows="5" name="jobdescription"
+                                <% if(typeof position !== 'undefined') {%> value="<%= position.jobdescription %>" <% } %>
+                                    class="form-control" placeholder="Please Enter Job Description"></textarea>
+                                    <% if(typeof jobDescriptionErr !== 'undefined') {%>
+                                        <span class="err"><%= jobDescriptionErr.msg %> </span>
+                                        <% } %>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-sm btn-primary" type="submit">Create Position</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
